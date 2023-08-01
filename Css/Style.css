@@ -1,0 +1,548 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+}
+
+.logo img{
+    margin-left: 25px;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul{
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+a
+{
+    /*Se quita la decoracion del texto*/
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    /*Se agrega una transicion*/
+    transition: .5s;
+}
+/*Se cambia color con evento HOVER al pasar el raton por encima*/
+a:hover
+{
+    color: #ff523b;
+}
+
+p{
+    color: #ff523b;
+    position: relative;
+}
+
+.Main-content{
+    /*Se coloca wallpaper para el Div principal*/
+    background: url(../Recursos/img/wallpaper.jpg) center/cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /*Se agrega linea gris donde termina el Div*/
+    border-bottom: 1.5px solid rgb(139, 139, 139);
+}
+
+.container{
+    max-width: 1300px;
+    margin:auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.container h1{
+    transition: transform 1s;
+}
+
+.container a{
+    transition: transform 1s;
+}
+
+.container:hover h1{
+    /*Con el evento Hover se agrega la animacion de que se agrande el
+    texto, se mueva a hacia arriba y a la derecha*/
+    transform: translateX(1%) translateY(-1%) scale(102%);
+}
+
+.container:hover a{
+    transform: translateX(2%) translateY(-1%) scale(105%);
+}
+
+.Main-row{
+    display: flex;
+    align-items:center;
+    margin-bottom: 40px;
+    height: 600px;
+}
+
+.row{
+    display: flex;
+    align-items:center;
+    margin-bottom: 40px;
+}
+
+.separador{
+    border: none;
+    background: #e6e6e6;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0px;
+}
+
+.Main-col h1{
+    margin-top: 260px;
+    border-radius: 10px;
+    padding: 2%;
+    font-size: 50px;
+    line-height: 60px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 68, 43, 0.9);
+}
+
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0px;
+}
+
+.col-2 video{
+    width: 1000px;
+    border-radius: 8px;
+    margin-left: -435px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    position: relative;
+    background: #ff523b;
+    color: rgb(0, 0, 0);
+    padding: 8px 30px;
+    margin: 30px 0px;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /*Se agrega transicion para que el boton cambie de color*/
+    transition: .3s ease all;
+}
+
+.btn:hover{
+    /*Se activa la transicion al pasar raton por encima*/
+    color: rgb(255, 255, 255);
+    background: #000;
+}
+
+header .row{
+    margin-top: 70px;
+}
+
+.categories{
+    margin: 70px 0px;
+}
+
+.col-3{
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.col-3 img{
+    width: 270px;
+}
+
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.col-4{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.col-4 img{
+    width: 100%;
+}
+
+.title{
+    text-align: center;
+    margin: 0px auto;
+    position: relative;
+    line-height: 60px;
+    color: #2c2c2c;
+}
+
+.title::after{
+    content: '';
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    /*Se agrega linea naranja y se coloca a la mitad*/
+    transform: translateX(-50%);
+}
+
+h4{
+    color: #555;
+    font-weight: normal;
+}
+
+.col-4 p{
+    font-size: 14px;
+}
+
+.col-4:hover{
+    transform: translateY(-5px);
+}
+
+
+.offer{
+    background: radial-gradient(#fff, #d3f6ff);
+    margin-top: 80px;
+    padding: 30px 0;
+    transition: transform 0.5s;
+}
+
+.offer img{
+    padding: 20px;
+    transition: transform 0.5s;
+}
+
+.offer h1, p{
+    transition: transform 0.5s;
+}
+
+.small{
+    color: #555;
+    transition: transform 0.5s;
+}
+
+.offer:hover .top{
+    transform: translateX(2%) translateY(-20%);
+}
+
+.offer:hover img{
+    transform: scale(110%) ;
+}
+
+.offer:hover h1{
+    transform: translateX(5%) scale(105%);
+}
+
+.offer:hover p{
+    transform: translateX(3%);
+}
+
+.offer:hover .btn{
+    transform: translateX(10%) translateY(10%) scale(110%);
+}
+
+
+/*---------------  brands  --------------*/
+
+.brands{
+    margin: 100px auto;
+}
+
+.col-5{
+    width: 100%;
+}
+
+.col-5 img{
+    width: 70%;
+    filter: grayscale(100%);
+}
+
+.col-5 img:hover{
+    filter: grayscale(0%);
+}
+
+
+/*---------------  footer  --------------*/
+
+footer{
+    background-color: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0;
+}
+
+footer p{
+    color: #8a8a8a;
+}
+
+footer h3{
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+    min-width: 160px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1{
+    flex-basis: 30%;
+}
+
+.footer-col-2{
+    flex: 1;
+    text-align: center;
+}
+
+.footer-col-2 img{
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.footer-col-3, .footer-col-4{
+    flex-basis: 12%;
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.app-logo{
+    margin-top: 10px;
+}
+
+.app-logo img{
+    width: 130px;
+}
+
+footer hr{
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.copyright{
+    text-align: center;
+}
+
+
+
+
+/*------------------------------Estilos de Contactanos------------------------*/
+
+
+
+#body-Contact {
+    background: url('../Recursos/img/wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
+
+.div-h1 {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    padding: 4%;
+    background-color: white;
+    margin-bottom: 3%;
+}
+
+#texto_Conct
+{
+    color: #555;
+    text-align: center;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+#Main-Contact {
+    width: 700px;
+    margin: auto;
+}
+
+fieldset {
+    border-radius: 10px;
+    font-size: 11px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2%;
+    color: rgb(77, 77, 77);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 10%;
+}
+
+label {
+    display: inline-block;
+    width: 80px;
+    margin-top: 3em;
+    margin-left: 2em;
+    font-size: 13px;
+    color: black;
+}
+
+input, textarea {
+    padding: 1.5%;
+    border-radius: 5px;
+    background:
+        linear-gradient(90deg, #222, #222) center bottom/0 0.15em no-repeat,
+        linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
+        linear-gradient(90deg, #fafafa, #fafafa) left bottom/100% no-repeat;
+    transition: background-size 0.3s ease;
+    border: 0;
+    margin-left: 2em;
+    margin-top: .5em;
+    width: 66%;
+    height: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-size:medium;
+    font-weight: bold;
+}
+
+input.dirty, textarea.dirty,
+input:not(:placeholder-shown), textarea:not(:placeholder-shown),
+input:focus, textarea:focus {
+    outline: none;
+    font-size: large;
+    background-size: 100% 0.15em, 100% 0.1em, 100%;
+}
+
+
+#btnRegistrarse {
+    margin-top: 4em;
+    margin-bottom: .8em;
+    width: 200px;
+}
+
+#btnLimpiar {
+    margin-bottom: 2em;
+    width: 200px;
+}
+
+button {
+    font-weight: bolder;
+    margin-left: 240px;
+    font-family: 'Raleway', sans-serif;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    background-color: rgba(255, 68, 43, 0.9);
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: .2s ease all;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+}
+
+button:active {
+    background-color: #202020;
+    box-shadow: 0px 3px #666;
+    transform: translateY(4px);
+}
+
+#txtMsj
+{
+    outline: none;
+    resize: none;
+    margin-top: 4%;
+    height: 200px;
+}
+
+
+
+/*------------------------------Estilos de Contactanos------------------------*/
+
+section
+{
+    background: url(Recursos/img/wallpaper.jpg) center/cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+article
+{
+    margin: 50px auto;
+    box-shadow: 0 4px 8px 0 rgba(71, 71, 71, 0.2);
+    border-radius: 10px;
+    margin-top: 2%;
+    max-width: 800px;
+    transition: transform 0.8s;
+    background-color: white;
+    padding: 20px 25px;
+}
+
+article p
+{
+    color: #555;
+    padding: 3%;
+    margin-left: 15px;
+}
+
+article h1
+{
+    padding-top: 2%;
+    display: flex;
+    color: #000000;
+}
+
+h1
+{
+    transition: transform 0.8s;
+}
+
+article:hover
+{
+    transform: scale(100.5%);
+}
+
