@@ -88,30 +88,21 @@ INSERT INTO `productos` (`id`, `marca`, `descripcion`, `imagen`, `precio`) VALUE
 --
 -- Table structure for table `usuarios`
 --
+CREATE TABLE 'usuarios' (
+'id' int(11) NOT NULL AUTO_INCREMENT,
+'nombre' varchar(45) NOT NULL,
+'email' varchar(45) NOT NULL,
+'password' varchar(45) NOT NULL,
+ PRIMARY KEY (`id`)
+);
 
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `apellido1` varchar(45) NOT NULL,
-  `apellido2` varchar(45) NOT NULL,
-  `cedula` varchar(11) NOT NULL,
-  `email` varchar(75) DEFAULT NULL,
-  `telefono` varchar(9) NOT NULL,
-  `fecha` varchar(10) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `permissions` varchar(45) NOT NULL,
-  `roles` varchar(45) NOT NULL,
-  `active` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellido1`, `apellido2`, `cedula`, `email`, `telefono`, `fecha`, `password`, `permissions`, `roles`, `active`) VALUES
-(1, 'Luis', 'Guerrero', 'Mora', '1-9880-7590', 'luisgm98@gmail.com', '8989-9090', '10/03/2023', '$2a$12$yPcO1JXl.hyWWcx7lbLkjOjnFdYJrvupKczw2Lyj7G1jn5nCTo1Xe', 'ADMIN', 'ADMIN', 1),
-(2, 'Bryan', 'Mora', 'Quesada', '1-6425-3637', 'brmoque123@gmail.com', '7478-5678', '10/03/2023', '$2a$12$r5B.uvQsc15.aT/7lXmC0OPNB2SyxXa1a0SQSWHagBj8IJFkotfyO', 'USER', 'USER', 1),
-(3, 'María', 'Flores', 'Miranda', '1-8612-8852', 'marflomi32@gmail.com', '2565-0925', '10/03/2023', '$2a$12$5d99ilZwUsDxKcLzaNBbLuN11PG/PdaJLhqHOD6HgxeaMo5FfY9wS', 'ADMIN', 'ADMIN', 1);
+INSERT INTO 'usuarios' VALUES (1, 'Sofia', 'luisgm98@gmail.com', '1234');
+
 
 --
 -- Indexes for dumped tables
