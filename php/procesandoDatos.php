@@ -1,6 +1,7 @@
 <?php
+include '../include/header.php'; ?>
 
-include 'include/template/header.php'; ?>
+<div>
 <h3>Datos a enviar</h3>
 
 <p>Nombre: <?= $_POST['nombre'] ?> </p>
@@ -8,7 +9,7 @@ include 'include/template/header.php'; ?>
 <p>Email: <?= $_POST['email'] ?> </p>
 <p>Direccion: <?= $_POST['direccion'] ?> </p>
 <p>mensaje: <?= $_POST['mensaje'] ?> </p>
-
+</div>
 <?php
 
     function IngresaDatosArchivo($nombre, $identificacion, $email, $direccion, $mensaje)
@@ -68,17 +69,17 @@ function AgregarDatosArchivo($nombre, $identificacion, $email, $direccion, $mens
                     }
                 }
 
-                try {
-                    IngresaDatosArchivo($_POST['nombre'], $_POST['identificacion'], $_POST['email'], $_POST['direccion'], $_POST['mensaje']);
-                    AgregarDatosArchivo($_POST['nombre'], $_POST['identificacion'], $_POST['email'], $_POST['direccion'], $_POST['mensaje']);
-                    LeerArchivo('datosAgregados.txt');
-                } catch (\Throwable $th) {
-                    //echo $th;
-                    echo "<h4>Ocurrió un error inesperado, contacte a XXX</h4>"; 
-                    // Almacenar a una bitacora (archivo, base datos, o endpoint) $th;
-                    //inicializar variables
-                }
+                // try {
+                //     IngresaDatosArchivo($_POST['nombre'], $_POST['identificacion'], $_POST['email'], $_POST['direccion'], $_POST['mensaje']);
+                //     AgregarDatosArchivo($_POST['nombre'], $_POST['identificacion'], $_POST['email'], $_POST['direccion'], $_POST['mensaje']);
+                //     LeerArchivo('datosAgregados.txt');
+                // } catch (\Throwable $th) {
+                //     //echo $th;
+                //     echo "<h4>Ocurrió un error inesperado, contacte a XXX</h4>"; 
+                //     // Almacenar a una bitacora (archivo, base datos, o endpoint) $th;
+                //     //inicializar variables
+                // }
             ?>
 
 
-<?php include 'include/template/footer.php'; ?>
+<?php include '../include/footer.php'; ?>

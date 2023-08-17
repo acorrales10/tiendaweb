@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+
+/// requires
+require_once './DAL/producto.php';
+
+$productos = obtenerProductos();
+?>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Css/productos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,14 +31,13 @@
             <nav>
                 <ul>
                     <li><a href="Index.html">Inicio</a></li>
-                    <li><a href="Productos.html">Productos</a></li>
+                    <li><a href="productos.php">Productos</a></li>
                     <li><a href="Mision_Vision.html">Nosotros</a></li>
                     <li><a href="Contactanos.html">Contactanos</a></li>
                     <li><a href="">Cuenta</a></li>
                 </ul>
             </nav>
-            <img src="Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px"
-                height="30px">
+            <img src="Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px" height="30px">
         </header>
 
 
@@ -41,78 +45,14 @@
         <section class="contenedor">
             <!-- Contenedor de elementos -->
             <div class="contenedor-items">
-                <div class="item">
-                    <span class="titulo-item">ASUS X515MA-BR423 - INTEL N4020-4GB</span>
-                    <img src="Recursos/img/compu1.jpg" alt="" class="img-item">
-                    <span class="precio-item">$129,000</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">ASUS X515EA-BQ1189 - CORE I3 1115G4-8GB-SSD</span>
-                    <img src="Recursos/img/compu2.jpg" alt="" class="img-item">
-                    <span class="precio-item">$215,000</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">LENOVO IDEAPAD 3 14IML05 - I3 10110U - 8 GB RAM</span>
-                    <img src="Recursos/img/compu3.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 285,000</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">HUAWEI MATEBOOK D14 - CORE I5 10210U- 8 GB- SSD + REGALIAS</span>
-                    <img src="Recursos/img/compu4.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 380,000</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">EXTREME PC LEVEL 5 AMD</span>
-                    <img src="Recursos/img/compu5.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 399,000</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">EXTREME PC LEVEL 3 INTEL</span>
-                    <img src="Recursos/img/compu6.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 284,000</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">ACER ASPIRE 3 - A315-58-55EX- I5 1135G7-8GB-SSD</span>
-                    <img src="Recursos/img/compu7.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 326,500</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">MSI KATANA 17 B12VGK - I7 12650H - RTX 4070</span>
-                    <img src="Recursos/img/compu8.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 1,199,000</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">Portátil gaming Alienware m16</span>
-                    <img src="Recursos/img/compu9.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 7263,34</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">Laptop Asus Gaming F15</span>
-                    <img src="Recursos/img/compu10.jpg" alt="" class="img-item">
-                    <span class="precio-item">$ 889,500</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">MONITOR PARA GAMING ALIENWARE 27 - AW2724DM</span>
-                    <img src="Recursos/img/compu11.avif" alt="" class="img-item">
-                    <span class="precio-item">$ 9263,34</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
-                <div class="item">
-                    <span class="titulo-item">MONITOR PARA JUEGOS ALIENWARE 27 - AW2723DF6</span>
-                    <img src="Recursos/img/compu12.avif" alt="" class="img-item">
-                    <span class="precio-item">$ 8263,34</span>
-                    <button class="boton-item">Agregar al Carrito</button>
-                </div>
+                <?php while ($row = $productos->fetch_assoc()) : ?>
+                    <div class="item">
+                        <span class="titulo-item"><?php echo $row["marca"] . " - " . $row["descripcion"]; ?></span>
+                        <img src="<?php echo $row["imagen"]; ?>" alt="" class="img-item">
+                        <span class="precio-item">₡ <?php echo  number_format($row["precio"], 2, ',', '.'); ?></span>
+                        <button class="boton-item">Agregar al Carrito</button>
+                    </div>
+                <?php endwhile ?>
             </div>
             <!-- Carrito de Compras -->
             <div class="carrito" id="carrito">

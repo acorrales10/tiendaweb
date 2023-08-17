@@ -3,7 +3,7 @@
 
 require_once 'conexion.php';
 
-function agregarProducto($marca, $descripcion, $imagen, $precio)
+function agregarProducto($marca, $descripcion, $imagen, $precio, $destacado)
 {
     $retorno = false;
     try {
@@ -11,14 +11,15 @@ function agregarProducto($marca, $descripcion, $imagen, $precio)
 
         //formato de datos UTF-8
         if (mysqli_set_charset($conexion, "utf8")) {
-            $stmt = $conexion->prepare("insert into productos(marca, descripcion, imagen, precio) values (?, ?, ?,?)");
-            $stmt->bind_param("sssd", $imarca, $idescripcion, $iimagen, $iprecio);
+            $stmt = $conexion->prepare("insert into productos(marca, descripcion, imagen, precio, destacado) values (?, ?, ?,?,?)");
+            $stmt->bind_param("sssd", $imarca, $idescripcion, $iimagen, $iprecio, $idestacado);
 
             //set parametros y ejecutar
             $imarca = $marca;
             $idescripcion = $descripcion;
             $iimagen = $imagen;
             $iprecio = $precio;
+            $idestacado = $destacado;
 
             if ($stmt->execute()) {
                 $retorno = true;
@@ -35,19 +36,20 @@ function agregarProducto($marca, $descripcion, $imagen, $precio)
 }
 
 
-function editarProducto($id, $marca, $descripcion, $imagen, $precio)
+function editarProducto($id, $marca, $descripcion, $imagen, $precio, $destacado)
 {
     $retorno = false;
     try {
         $conexion = Conecta();
-        $stmt = $conexion->prepare("UPDATE `productos` SET `marca` = ?, `descripcion` = ?, `imagen` = ?, `precio` =  ?  WHERE `productos`.`id` = ?");
-        $stmt->bind_param("sssdi", $imarca, $idescripcion, $iimagen, $iprecio, $iid);
+        $stmt = $conexion->prepare("UPDATE `productos` SET `marca` = ?, `descripcion` = ?, `imagen` = ?, `precio` =  ? , `destacado` =  ? WHERE `productos`.`id` = ?");
+        $stmt->bind_param("sssdii", $imarca, $idescripcion, $iimagen, $iprecio,$idestacado ,$iid);
 
             //set parametros y ejecutar
             $imarca = $marca;
             $idescripcion = $descripcion;
             $iimagen = $imagen;
             $iprecio = $precio;
+            $idestacado = $destacado;
             $iid = $id;
             if ($stmt->execute()) {
                 $retorno = true;

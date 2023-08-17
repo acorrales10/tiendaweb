@@ -388,6 +388,13 @@ footer hr{
     padding: 4%;
     background-color: white;
     margin-bottom: 3%;
+
+}
+
+.div-h1-sin-background {
+    padding: 4%;
+    background-color: white;
+    margin-bottom: 3%;
 }
 
 #texto_Conct
@@ -545,3 +552,8 @@ article:hover
     transform: scale(100.5%);
 }
 
+.contenedor-productos{
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}

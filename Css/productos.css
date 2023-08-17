@@ -82,6 +82,7 @@ header h1{
     margin: auto;
     display: flex;
     justify-content: space-between;
+    background-color: #fff;
     /* oculto lo que queda fuera del .contenedor */
     contain: paint;
 }

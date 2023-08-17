@@ -1,3 +1,6 @@
+</div>
+</body>
+
 <footer class="footer">
         <div class="container">
             <div class="row">
@@ -5,12 +8,12 @@
                     <h3>Descarga nuestra APP</h3>
                     <p>Actualmente disponible para teléfonos inteligentes Android y IOS</p>
                     <div class="app-logo">
-                        <img src="Recursos/logo/playstore logo PNG.png" alt="Play Store logo">
-                        <img src="Recursos/logo/appstore logo PNG.png" alt="App Store logo">
+                        <img src="../Recursos/logo/playstore logo PNG.png" alt="Play Store logo">
+                        <img src="../Recursos/logo/appstore logo PNG.png" alt="App Store logo">
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="Recursos/logo/Logo.png" alt="Logo mobile">
+                    <img src="../Recursos/logo/Logo.png" alt="Logo mobile">
                     <p>Estamos ubicados de la Entrada del Barrio Chino, Avenida Segunda, 50 m al Norte, Comercial Nueva
                         Era
                         <br>Horario: Lunes a Sábado 9 AM a 7 PM / Domingo 10 AM a 6 PM.

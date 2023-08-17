@@ -18,16 +18,19 @@ $productId  = "";
 if (!empty($_GET)) {
     $productId = recogeGet("id");
     $producto = obtenerProducto($productId);
-    print_r($producto->marca);
+    //print_r($producto->marca);
 }
 
 $productos = obtenerProductos();
 if (!empty($_POST)) {
 
+    $id = recogePost("id");
     $marca = recogePost("marca");
     $descripcion = recogePost("descripcion");
     $imagen = recogePost("imagen");
     $precio = recogePost("precio");
+
+    $destacado = recogePost("destacado");
 
     $marcaOk = false;
     $descripcionOk = false;
@@ -62,9 +65,16 @@ if (!empty($_POST)) {
         $precioOk = true;
     }
 
+    $destacadoActualizar = 0;
+    if ($destacado === "") {
+        $destacadoActualizar = 0;
+    } else {
+        $destacadoActualizar = 1;
+    }
+
     if ($marcaOk && $descripcionOk && $imagenOk && $precioOk) {
         //ingresar datos de un producto
-        if (editarProducto($productId, $marca, $descripcion, $imagen, $precio)) {
+        if (editarProducto($id, $marca, $descripcion, $imagen, $precio, $destacadoActualizar)) {
             header("Location: ./productos.php");
         }
     }
@@ -73,7 +83,7 @@ if (!empty($_POST)) {
 ?>
 
 <div class="div-h1">
-    <h1 id="texto_Conct">Editar Producto <?php echo $productId ?> </h1>
+    <h1 id="texto_Conct">Editar Producto </h1>
 </div>
 <div id="Main-Contact">
     <fieldset>
@@ -100,6 +110,11 @@ if (!empty($_POST)) {
                 <input type="number" name="precio" id="txtDireccion" class="Input" placeholder="&nbsp;" value="<?php echo $producto->precio ?>" />
             </div>
 
+            <div id="contenedor">
+                <label class="label" for="txtDestacado">Destacado?</label>
+                <input type="checkbox" name="destacado" id="txtDestacado" class="Input" placeholder="&nbsp;" />
+            </div>
+
             <div>
                 <button class="boton" type="submit" id="btnRegistrarse">Actualizar Producto</button>
             </div>
@@ -108,23 +123,26 @@ if (!empty($_POST)) {
 </div>
 <?php if ($productos) : ?>
 
-    <div class="div-h1">
-        <h1 id="texto_Conct">Catalogo de Productos </h1>
-    </div>
-    <section class="contenedor">
-        <!-- Contenedor de elementos -->
-        <div class="contenedor-items">
-            <?php while ($row = $productos->fetch_assoc()) : ?>
-                <div class="item">
-                    <span class="titulo-item"><?php echo $row["marca"] . " - " . $row["descripcion"]; ?></span>
-                    <img src="<?php echo $row["imagen"]; ?>" alt="" class="img-item">
-                    <span class="precio-item">₡ <?php echo  number_format($row["precio"], 2, ',', '.'); ?></span>
-                    <a href="<?php echo './productos.php?id=' . $row["id"] ?>" class="boton-item">Editar Producto</a>
-                    <a href="<?php echo './productos.php?eliminar=' . $row["id"] ?>" class="boton-item">Eliminar Producto</a>
-                </div>
+
+    <section class="contenedor-productos">
+
+        <div class="div-h1-sin-background">
+            <h1 id="texto_Conct">Catalogo de Productos </h1>
         </div>
-    <?php endwhile ?>
-    </div>
+        <div class="contenedor">
+            <!-- Contenedor de elementos -->
+            <div class="contenedor-items">
+                <?php while ($row = $productos->fetch_assoc()) : ?>
+                    <div class="item">
+                        <span class="titulo-item"><?php echo $row["marca"] . " - " . $row["descripcion"]; ?></span>
+                        <img src="<?php echo $row["imagen"]; ?>" alt="" class="img-item">
+                        <span class="precio-item">₡ <?php echo  number_format($row["precio"], 2, ',', '.'); ?></span>
+                        <a href="<?php echo './productos.php?id=' . $row["id"] ?>" class="boton-item">Editar Producto</a>
+                        <a href="<?php echo './productos.php?eliminar=' . $row["id"] ?>" class="boton-item">Eliminar Producto</a>
+                    </div>
+                <?php endwhile ?>
+            </div>
+        </div>
     </section>
 <?php else : ?>
     <a> No hay productos aun, ingresa algunos </a>
