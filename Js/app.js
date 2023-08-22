@@ -20,7 +20,7 @@ const total = document.getElementById('total');
 const body = document.querySelector("body");
 const x = document.getElementById('x')
 
-// Variables que vamos a usar en nuestoro proyecto
+// Variables que vamos a usar en nuestro proyecto
 let lista = []
 let valortotal = 0
 
@@ -135,6 +135,8 @@ function agregarAlCarritoClicked(event){
     var precio = item.getElementsByClassName('precio-item')[0].innerText;
     var imagenSrc = item.getElementsByClassName('img-item')[0].src;
     console.log(imagenSrc);
+    console.log(precio);
+    console.log(titulo);
 
     agregarItemAlCarrito(titulo, precio, imagenSrc);
 
@@ -259,7 +261,7 @@ function actualizarTotalCarrito(){
         var item = carritoItems[i];
         var precioElemento = item.getElementsByClassName('carrito-item-precio')[0];
         //quitamos el simobolo peso y el punto de milesimos.
-        var precio = parseFloat(precioElemento.innerText.replace('$','').replace('.',''));
+        var precio = parseFloat(precioElemento.innerText.replace('₡','').replace('.',''));
         var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
         console.log(precio);
         var cantidad = cantidadItem.value;
@@ -267,6 +269,6 @@ function actualizarTotalCarrito(){
     }
     total = Math.round(total * 100)/100;
 
-    document.getElementsByClassName('carrito-precio-total')[0].innerText = '$'+total.toLocaleString("es") + ",00";
+    document.getElementsByClassName('carrito-precio-total')[0].innerText = '₡'+total.toLocaleString("es") + ",00";
 
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+session_start();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +20,22 @@
     </div>
     <nav>
         <ul>
-            <li><a href="../../Index.html">Inicio</a></li>
-            <li><a href="../productos/productos.php">Productos</a></li>
-            <li><a href="../../Contactanos.html">Contactanos</a></li>
-            <li><a href="">Cuenta</a></li>
+            <li><a href="../../Index.php">Inicio</a></li>
+            <li><a href="../../Contactanos.php">Contactanos</a></li>
+            <?php if (empty($_SESSION["rol"])) : ?>
+                <li><a href="./login.php">Iniciar Sesion</a></li>
+            <?php else : ?>
+                <li><a href=""><?php echo $_SESSION["nombre"] . ' ' . $_SESSION["apellido1"] ?></a></li>
+                <li><a href="../../controlador/cerrar_sesion.php">Cerrar Sesión</a></li>
+            <?php endif; ?>
+            <?php if ($_SESSION["rol"] == "ADMIN" || $_SESSION["rol"] == "admin") : ?>
+                <li><a href="productos.php">Admin</a></li>
+            <?php endif; ?>
+            <?php if ($_SESSION["rol"] === "USER" || $_SESSION["rol"] === "user") : ?>
+                <li> <img src="Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px" height="30px"> </li>
+            <?php endif; ?>
         </ul>
     </nav>
-    <img src="../../Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px" height="30px">
 </header>
 
 <body id="body-Contact">

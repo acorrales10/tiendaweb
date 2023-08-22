@@ -104,6 +104,45 @@ function obtenerProductos()
     return $retorno;
 }
 
+function obtenerProductosDestacados()
+{
+    $retorno = null;
+    try {
+        $conexion = Conecta();
+        $sql = "SELECT * FROM productos WHERE destacado = 1 ORDER BY fecha DESC limit 4;";
+        $resultado = $conexion->query($sql);
+        if ($resultado->num_rows > 0) {
+            $retorno = $resultado;
+        }
+    } catch (\Throwable $th) {
+        echo $th;
+        //bitacoras
+    } finally {
+        Desconecta($conexion);
+    }
+    return $retorno;
+}
+
+
+function obtenerProductosRecientes()
+{
+    $retorno = null;
+    try {
+        $conexion = Conecta();
+        $sql = "SELECT * FROM productos ORDER BY fecha DESC limit 4;";
+        $resultado = $conexion->query($sql);
+        if ($resultado->num_rows > 0) {
+            $retorno = $resultado;
+        }
+    } catch (\Throwable $th) {
+        echo $th;
+        //bitacoras
+    } finally {
+        Desconecta($conexion);
+    }
+    return $retorno;
+}
+
 function obtenerProducto($id)
 {
     $retorno = null;

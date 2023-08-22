@@ -81,6 +81,7 @@ header h1{
     padding: 10px;
     margin: auto;
     display: flex;
+    padding-bottom: 100px;
     justify-content: space-between;
     background-color: #fff;
     /* oculto lo que queda fuera del .contenedor */
@@ -205,7 +206,7 @@ header h1{
 .carrito .carrito-item .btn-eliminar{
     position: absolute;
     right: 15px;
-    top: 15px;
+    top: 60px;
     color: #000;
     font-size: 20px;
     width: 40px;
@@ -216,7 +217,7 @@ header h1{
     border: 1px solid #000;
     cursor: pointer;
     display: block;
-    background: transparent;
+    background: white;
     z-index: 20;
 }
 .carrito .carrito-item .btn-eliminar i{
@@ -334,4 +335,39 @@ footer hr{
 
 .copyright{
     text-align: center;
+}
+
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.separador{
+    border: none;
+    background: #e6e6e6;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.title{
+    text-align: center;
+    margin: 0px auto;
+    position: relative;
+    line-height: 60px;
+    color: #2c2c2c;
+}
+
+.title::after{
+    content: '';
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    /*Se agrega linea naranja y se coloca a la mitad*/
+    transform: translateX(-50%);
 }
