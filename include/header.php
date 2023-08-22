@@ -2,6 +2,12 @@
 <html lang="en">
 <?php
 session_start();
+
+require_once './DAL/factura.php';
+
+if(!empty($_SESSION["id"])){
+    $carrito = obtenerOCrearBorrador($_SESSION["id"]);
+}
 ?>
 
 <head>
@@ -13,8 +19,6 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
@@ -39,10 +43,11 @@ session_start();
                         <li><a href="./controlador/cerrar_sesion.php">Cerrar Sesión</a></li>
                     <?php endif; ?>
                     <?php if ($_SESSION["rol"] == "ADMIN" || $_SESSION["rol"] == "admin") : ?>
-                        <li><a href="./admin/productos/productos.php">Admin</a></li>
+                        <li><a href="./admin/productos/productos.php">Admin Catalogo</a></li>
+                        <li><a class="link-light" href="./admin/contacto/contactos.php">Admin Contactos</a></li>
                     <?php endif; ?>
                     <?php if ($_SESSION["rol"] == "USER" || $_SESSION["rol"] == "user") : ?>
-                        <li> <img src="Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px" height="30px"> </li>
+                        <li><a href="./productos.php"> <?php echo $carrito->lineas ?><img src="Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px" height="30px"> </a></li>
                     <?php endif; ?>
                 </ul>
             </nav>

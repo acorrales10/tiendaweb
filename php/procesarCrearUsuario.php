@@ -1,40 +1,8 @@
 <?php
-include("../DAL/conexion.php");
+include("../DAL/usuario.php");
 
 
-function insertarUsuario($name, $apellido1, $apellido2, $email, $phone, $address, $password)
-{
-    $retorno = false;
-    try {
-        $conexion = Conecta();
 
-        //formato de datos UTF-8
-        if (mysqli_set_charset($conexion, "utf8")) {
-            $stmt = $conexion->prepare("insert into usuarios (nombre, apellido1, apellido2, email, telefono, direccion, password, permissions, roles, active) values (?,?,?,?,?,?,?,'USER','USER',1)");
-            $stmt->bind_param("sssssss", $iname, $iapellido1, $iapellido2, $iemail, $iphone, $iaddress, $ipassword);
-
-            //set parametros y ejecutar
-            $iname = $name;
-            $iapellido1 = $apellido1;
-            $iapellido2 = $apellido2;
-            $iemail = $email;
-            $iphone = $phone;
-            $iaddress = $address;
-            $ipassword = $password;
-
-            if ($stmt->execute()) {
-                $retorno = true;
-            }
-        }
-    } catch (\Throwable $th) {
-        echo $th;
-        //bitacoras
-    } finally {
-        Desconecta($conexion);
-    }
-
-    return $retorno;
-}
 if (isset($_POST['send'])) {
 
     if (
@@ -60,7 +28,7 @@ if (isset($_POST['send'])) {
 ?>
             <h3 class="success">Has sido registrado exitosamente</h3>
             <?php
-            header("Location: ../login.html");
+            header("Location: ../login.php");
             ?>
         <?php
         } else {

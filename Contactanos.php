@@ -4,7 +4,7 @@
     </div>
     <div id="Main-Contact">
         <fieldset>
-            <form class="contact_form" action="./php/procesandoDatos.php" method="POST" id="contact_form" runat="server">
+            <form class="contact_form" action="./php/procesarAgregarCliente.php" method="POST" id="contact_form" runat="server">
 
                 <div id="contenedor">
                     <label class="label" for="txtNombre">Nombre</label>
@@ -22,6 +22,11 @@
                 </div>
 
                 <div id="contenedor">
+                    <label class="label" for="txtTelefono">Telefono</label>
+                    <input type="phone" name="telefono" id="txtTelefono" class="Input" placeholder="&nbsp;" required />
+                </div>
+
+                <div id="contenedor">
                     <label class="label" for="txtDireccion">Dirección</label>
                     <input type="text" name="direccion" id="txtDireccion" class="Input" placeholder="&nbsp;" />
                 </div>
@@ -32,7 +37,7 @@
                 </div>
 
                 <div>
-                    <button class="boton" type="submit" id="btnRegistrarse">Enviar</button>
+                    <input  name="send" class="btn" type="submit" id="btnRegistrarse" value="Enviar" />
                 </div>
 
                 <div>

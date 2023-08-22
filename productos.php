@@ -2,9 +2,13 @@
 
 /// requires
 require_once './DAL/producto.php';
-
 $productos = obtenerProductos();
+
 include_once './include/header_prod.php';
+
+if ($carrito != null) {
+    $lineas = obtenerLineasXFactura($carrito->id);
+}
 ?>
 </div>
 <div class="small-container">
@@ -18,8 +22,8 @@ include_once './include/header_prod.php';
                     <span class="titulo-item"><?php echo $row["marca"] . " - " . $row["descripcion"]; ?></span>
                     <img src="<?php echo $row["imagen"]; ?>" alt="" class="img-item">
                     <span class="precio-item">₡<?php echo  number_format($row["precio"], 2, ',', '.'); ?></span>
-                    <?php if (!empty($_SESSION["rol"])) : ?>
-                    <button class="boton-item">Agregar al Carrito</button>
+                    <?php if (!empty($_SESSION["rol"]) &&  ($_SESSION["rol"] == "user" || $_SESSION["rol"] == "USER")) : ?>
+                        <a href="./php/procesarAgregarCarrito.php?idFactura=<?php echo $carrito->id; ?>&idProducto=<?php echo $row["id"]; ?>&cantidad=1&precio=<?php echo $row["precio"]; ?>&total=<?php echo $row["precio"]; ?>&lineas=<?php echo $carrito->lineas; ?>" class="boton-item">Agregar al Carrito</a>
                     <?php endif ?>
                 </div>
             <?php endwhile ?>
@@ -31,22 +35,27 @@ include_once './include/header_prod.php';
             </div>
 
             <div class="carrito-items">
-                <!-- 
-                <div class="carrito-item">
-                    <img src="img/boxengasse.png" width="80px" alt="">
-                    <div class="carrito-item-detalles">
-                        <span class="carrito-item-titulo">Box Engasse</span>
-                        <div class="selector-cantidad">
-                            <i class="fa-solid fa-minus restar-cantidad"></i>
-                            <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                <?php if($lineas != null) :?>
+                <?php while ($rowLinea = $lineas->fetch_assoc()) : ?>
+                    <div class="carrito-item">
+                        <img src="<?php echo $rowLinea["imagen"]; ?>" width="80px" alt="">
+                        <div class="carrito-item-detalles">
+                            <span class="carrito-item-titulo"><?php echo $rowLinea["descripcion"]; ?></span>
+                            <div class="selector-cantidad">
+                                <!-- <i class="fa-solid fa-minus restar-cantidad"></i> -->
+                                <input type="text" value="<?php echo $rowLinea["cantidad"]; ?>" class="carrito-item-cantidad" disabled>
+                                <!-- <i class="fa-solid fa-plus sumar-cantidad"></i> -->
+                            </div>
+                            <span class="carrito-item-precio">₡<?php echo  number_format($rowLinea["total"], 2, ',', '.'); ?></span>
                         </div>
-                        <span class="carrito-item-precio">$15.000,00</span>
+                        <a href="./php/procesarEliminarCarrito.php?idFactura=<?php echo $carrito->id; ?>&linea=<?php echo $rowLinea["id"]; ?>&lineas=<?php echo $carrito->lineas; ?>"><span class="btn-eliminar">
+                            <i class="fa-solid fa-trash"></i>
+                        </span></a>
                     </div>
-                   <span class="btn-eliminar">
-                        <i class="fa-solid fa-trash"></i>
-                   </span>
-                </div>
+
+                <?php endwhile ?>
+                <?php endif ?>
+                <!--                 
                 <div class="carrito-item">
                     <img src="img/skinglam.png" width="80px" alt="">
                     <div class="carrito-item-detalles">
@@ -65,13 +74,20 @@ include_once './include/header_prod.php';
                  -->
             </div>
             <div class="carrito-total">
+            <form  action="./php/procesarPagarFactura.php" method="get" name="finalizar" >
                 <div class="fila">
                     <strong>Tu Total</strong>
                     <span class="carrito-precio-total">
                         $120.000,00
                     </span>
+                    <input type="number"  hidden class="carrito-precio-total-numero"  name="total" id="totalFactura">
+                    <?php
+                    if ($carrito != null):
+                        ?>
+                    <input type="number" value="<?php echo $carrito->id?>" hidden name="idFactura"/>
+                    <?php  endif?>
                 </div>
-                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+                <button type="submit" class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
             </div>
         </div>
     </section>
@@ -124,6 +140,14 @@ include_once './include/header_prod.php';
 </footer>
 
 <script src="Js/app.js" async></script>
+<?php
+if (!empty($_SESSION["id"])) {
+    echo "<script> window.onload = function() {
+        actualizarTotalCarrito();
+        hacerVisibleCarrito();
+    }; </script>";
+}
+?>
 </body>
 
 </html>

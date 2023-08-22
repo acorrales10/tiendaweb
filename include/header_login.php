@@ -42,7 +42,8 @@ session_start();
                         <li><a href="./admin/productos/productos.php">Admin</a></li>
                     <?php endif; ?>
                     <?php if ($_SESSION["rol"] == "USER" || $_SESSION["rol"] == "user") : ?>
-                        <li> <img src="Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px" height="30px"> </li>
+
+                        <li><img src="Recursos/ico/shopping bag.png" class="carro-compras" alt="carritoCompras" width="30px" height="30px"> </li>
                     <?php endif; ?>
                 </ul>
             </nav>

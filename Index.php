@@ -35,7 +35,7 @@ $productosRecientes = obtenerProductosRecientes();
             <div class="col-4">
                 <a href="./productos.php"><img src="<?php echo $row["imagen"]; ?>" alt="<?php echo $row["descripcion"]; ?>"> </a>
                 <h4><?php echo $row["descripcion"]; ?></h4>
-                <p>₡ <?php echo  number_format($row["precio"], 2, ',', '.'); ?></p>
+                <p>₡<?php echo  number_format($row["precio"], 2, ',', '.'); ?></p>
             </div>
         <?php endwhile; ?>
     </div>
@@ -46,7 +46,7 @@ $productosRecientes = obtenerProductosRecientes();
             <div class="col-4">
                 <a href="./productos.php"><img src="<?php echo $row["imagen"]; ?>" alt="<?php echo $row["descripcion"]; ?>"> </a>
                 <h4><?php echo $row["descripcion"]; ?></h4>
-                <p>₡ <?php echo  number_format($row["precio"], 2, ',', '.'); ?></p>
+                <p>₡<?php echo  number_format($row["precio"], 2, ',', '.'); ?></p>
             </div>
         <?php endwhile; ?>
     </div>

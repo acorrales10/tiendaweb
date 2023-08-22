@@ -2,7 +2,7 @@
 </div>
 
     <div class = "wrapper">
-        <form method="post" action="./php/send.php" autocomplete="off" >
+        <form method="post" action="./php/procesarCrearUsuario.php" autocomplete="off" >
             <h1>Registrate</h1>
             <div class ="input-box">
                 <input type="text" name="name" class="input-login" placeholder="Nombre" required>
