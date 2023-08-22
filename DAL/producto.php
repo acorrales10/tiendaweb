@@ -12,7 +12,7 @@ function agregarProducto($marca, $descripcion, $imagen, $precio, $destacado)
         //formato de datos UTF-8
         if (mysqli_set_charset($conexion, "utf8")) {
             $stmt = $conexion->prepare("insert into productos(marca, descripcion, imagen, precio, destacado) values (?, ?, ?,?,?)");
-            $stmt->bind_param("sssd", $imarca, $idescripcion, $iimagen, $iprecio, $idestacado);
+            $stmt->bind_param("sssdi", $imarca, $idescripcion, $iimagen, $iprecio, $idestacado);
 
             //set parametros y ejecutar
             $imarca = $marca;
